@@ -1,0 +1,12 @@
+{% extends "shows/layout.html" %}
+
+{% block body %}
+
+
+        {% for show in shows %}
+            {{ show }}, <br>
+        {% empty %}
+            No shows
+        {% endfor %}
+
+{% endblock %}
