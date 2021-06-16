@@ -1,0 +1,12 @@
+{% extends "shows/layout.html" %}
+
+{% block body %}
+
+
+        {% for actor in actors %}
+            {{ actor }}, <br>
+        {% empty %}
+            No actors.
+        {% endfor %}
+
+{% endblock %}

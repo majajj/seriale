@@ -69,8 +69,20 @@ def search_actor_from_show(request, title_id):
 
     result["message"] = "There was a problem with send request"
     result["status"] = actors.status_code
+    try:
+        if actors.status_code in [200, 201, 202]:
+            actors = actors.json()
+            list_of_authors = []
 
-    if actors.status_code in [200, 201, 202]:
-        actors = actors.json()
-    
-    return Response(actors)
+            for actor in actors:
+                actor_id = actor["person"]["id"]
+                actor_name = actor["person"]["name"]
+                list_of_authors.append({"id": actor_id, "name": actor_name})
+
+            
+        
+            return render(request, "actors/index.html", {
+                "actors": list_of_authors
+            })
+    except:
+        return Response(result)
