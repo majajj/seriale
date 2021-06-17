@@ -2,11 +2,12 @@
 
 {% block body %}
 
-
+    [ <br>
         {% for actor in actors %}
-            {{ actor }}, <br>
+             {{ actor }}, <br>
         {% empty %}
             No actors.
-        {% endfor %}
+        {% endfor %} 
+    ]
 
 {% endblock %}
