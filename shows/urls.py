@@ -5,7 +5,7 @@ from .views import \
     search_actor_from_show
 
 urlpatterns = [
-    path('search-shows/', search_show),
+    path('shows/', search_show),
     path('<str:title_id>/actors', search_actor_from_show)
     
 ]
